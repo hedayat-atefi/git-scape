@@ -19,7 +19,7 @@
 }
 @theme inline { --color-background: var(--background); --color-foreground: var(--foreground); --color-card: var(--card); --color-border: var(--border); --color-muted-foreground: var(--muted); --color-primary: var(--accent); --radius-md: var(--radius); --radius-lg: .75rem; }
 * { box-sizing: border-box; border-color: var(--border); }
-body { margin: 0; background: var(--background); color: var(--foreground); font-family: Arial, Helvetica, sans-serif; }
+body { margin: 0; background: var(--background); color: var(--foreground); font-family: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
 button { font: inherit; color: inherit; cursor: pointer; }
 .app-shell { min-height: 100vh; background: radial-gradient(circle at 48% 34%, #18202c 0, #0d1017 47%); display: flex; flex-direction: column; overflow: hidden; }
 .topbar { height: 74px; padding: 0 28px; border-bottom: 1px solid #222a36; display: flex; align-items: center; justify-content: space-between; background: #10141dce; backdrop-filter: blur(18px); z-index: 3; }
@@ -30,3 +30,37 @@ button { font: inherit; color: inherit; cursor: pointer; }
 @media (max-width: 620px) { .topbar { padding: 0 16px; }.map-head { align-items: start; flex-direction: column; gap: 14px; }.map-head h2 { font-size: 19px; }.map-canvas { margin: 0 10px; min-height: 420px; }.filter-bar { overflow-x: auto; padding-left: 12px; }.filter-label { display: none; }.filter { flex: 0 0 auto; }.map-legend { display: none; }.terrain-label { font-size: 7px; }.statusbar { padding: 0 15px; }.statusbar > span:nth-child(2) { margin-left: auto; }.brand h1 { font-size: 13px; } }
 
 @layer base { * { outline-color: color-mix(in srgb, var(--accent) 50%, transparent); } }
+
+/* Atlas polish: a dark cartographic instrument, not a dashboard */
+.brand h1, .map-head h2, .selected-banner h2 { font-family: 'Newsreader', Georgia, serif; }
+.app-shell { background: radial-gradient(ellipse at 52% 12%, #243448 0, #121a25 26%, #0a0e14 72%); }
+.topbar { background: linear-gradient(180deg, #111b28f2, #0d141ee8); border-bottom-color: #304156; }
+.brand-mark { border-color: #526b83; background: linear-gradient(145deg, #263c4c, #182330); color: #b9f3dc; box-shadow: 0 0 24px #83d7c01c; }
+.brand h1 { font-size: 18px; letter-spacing: -.04em; }
+.map-head { padding-top: 34px; }
+.map-head h2 { font-size: 28px; }
+.map-head h2 em { color: #b8f3d2; }
+.control-pill, .filter { background: #17222e; border-color: #3a4d61; box-shadow: inset 0 1px #ffffff09; }
+.control-pill:hover, .filter:hover, .icon-button:hover, .map-controls button:hover { background: #213142; border-color: #6b8ba4; color: #d6f8e8; }
+.map-canvas { border-color: #34495b; background: radial-gradient(circle at 47% 40%, #1c2c36 0, #111b25 44%, #0b121a 100%); box-shadow: inset 0 0 80px #071017aa, 0 22px 50px #0004; }
+.map-canvas::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at center, transparent 42%, #05090e88 100%), repeating-linear-gradient(115deg, transparent 0 90px, #b6f0d408 91px 92px); mix-blend-mode: screen; }
+.grid-lines { opacity: .82; background-image: linear-gradient(#6b889915 1px, transparent 1px), linear-gradient(90deg, #6b889915 1px, transparent 1px); background-size: 42px 42px; }
+.history-svg { filter: drop-shadow(0 0 8px #92e4c344); }
+.branch-path { stroke-linecap: round; }
+.main-path { stroke: #b8c7ff; stroke-width: .7; }
+.feature-path { stroke: #f2ba70; stroke-width: .75; }
+.node-halo { opacity: .32; }
+.node-core { stroke: #f1f8ff; stroke-width: .28; }
+.commit-node:hover .node-core { stroke-width: .8; filter: brightness(1.22); }
+.branch-tag { background: #162331e8; border-color: #4c657b; box-shadow: 0 8px 20px #0004; }
+.map-legend, .scale { background: #14202be8; border-color: #3a5064; }
+.filter-bar { border-top-color: #2d4052; border-bottom-color: #2d4052; background: #101923cc; }
+.filter.active { color: #e1f8ec; background: #25453f; border-color: #66b99e; }
+.orange-filter { color: #ffd6a1 !important; background: #49331f !important; border-color: #b47a3b !important; }
+.detail-panel { background: linear-gradient(180deg, #111b27f2, #0d141de8); border-left-color: #34495b; }
+.selected-banner { border-bottom-color: #34495b; }
+.ai-card { background: linear-gradient(135deg, #213a42, #172832); border-color: #4d7f7b; box-shadow: 0 12px 28px #07111866; }
+.ai-title { color: #b7f5d8; }
+.statusbar { background: #0b1119; border-top-color: #2c4053; }
+@media (max-width: 620px) { .map-head h2 { font-size: 23px; } }
+
