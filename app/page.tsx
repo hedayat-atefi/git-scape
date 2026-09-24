@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { GitBranch, GitCommit, SlidersHorizontal, Search, ZoomIn, ZoomOut, Maximize2, Sparkles, ChevronDown, X, PanelRight, Layers3, Clock3, Users, Box, ArrowUpRight, FileCode2 } from 'lucide-react'
+import { GitBranch, GitCommit, SlidersHorizontal, Search, Sparkles, ChevronDown, X, PanelRight, Layers3, Clock3, Users, Box, ArrowUpRight, FileCode2 } from 'lucide-react'
 
 type Commit = { id: string; x: number; y: number; r: number; branch: string; color: string; message: string; author: string; time: string; files: number; additions: number; deletions: number; hash: string; tags?: string[]; }
 
@@ -48,7 +48,6 @@ export default function Page() {
             </svg>
             <div className="branch-tag main-tag"><span className="branch-dot" /> main <span className="tag-count">2,904</span></div><div className="branch-tag feature-tag"><span className="branch-dot orange" /> edge-cache <span className="tag-count">18</span></div>
             <div className="map-legend"><div><span className="legend-dot small" /> regular</div><div><span className="legend-dot large" /> high impact</div><div><span className="legend-line" /> branch path</div></div>
-            <div className="map-controls"><button aria-label="Zoom in" onClick={() => setZoom(Math.min(1.4, zoom + .1))}><ZoomIn size={15} /></button><button aria-label="Zoom out" onClick={() => setZoom(Math.max(.8, zoom - .1))}><ZoomOut size={15} /></button><button aria-label="Fit map" onClick={() => setZoom(1)}><Maximize2 size={14} /></button></div>
             <div className="scale">50 commits <span /> 100 commits</div>
           </div>
           <div className="filter-bar"><button className="filter-label"><SlidersHorizontal size={14} /> FILTERS</button><button className={activeBranch === 'all' ? 'filter active' : 'filter'} onClick={() => setActiveBranch('all')}><Layers3 size={13} /> All branches <span>3</span></button><button className={activeBranch === 'main' ? 'filter active' : 'filter'} onClick={() => setActiveBranch('main')}><GitBranch size={13} /> main</button><button className={activeBranch === 'edge-cache' ? 'filter active orange-filter' : 'filter'} onClick={() => setActiveBranch('edge-cache')}><GitBranch size={13} /> edge-cache</button><button className="filter"><Users size={13} /> Contributors <ChevronDown size={13} /></button><div className="filter-spacer" /><button className="search-button" aria-label="Search commits"><Search size={16} /></button></div>
